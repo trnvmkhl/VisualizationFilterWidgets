@@ -26,19 +26,20 @@ async function tableFilter() {
       .addEventListener("keyup", function () {
         let input = document.getElementById(inputs[j].id);
         let filter = input.value.toUpperCase();
-        const table = document.getElementById("myTable");
-        const tr = table.getElementsByTagName("tr");
-        for (let i = 0; i < tr.length; i++) {
-          let td = tr[i].getElementsByTagName("td")[j];
-          if (td) {
-            let txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-              tr[i].style.display = "";
-            } else {
-              tr[i].style.display = "none";
+        document.querySelectorAll("table").forEach((item) => {
+          const tr = item.getElementsByTagName("tr");
+          for (let i = 0; i < tr.length; i++) {
+            let td = tr[i].getElementsByTagName("td")[j];
+            if (td) {
+              let txtValue = td.textContent || td.innerText;
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+              } else {
+                tr[i].style.display = "none";
+              }
             }
           }
-        }
+          });
       });
   }
 }

@@ -40,7 +40,6 @@ async function createTable() {
 
   }
 
-  table.setAttribute('id', 'myTable')
   divForWidget.classList.add('table');
   divForWidget.appendChild(table);
   document.body.appendChild(divForWidget);
